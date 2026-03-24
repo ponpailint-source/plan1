@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนการจัดการเรียนรู้ดิจิทัล: เซตและการดำเนินการ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #fafaf9; } /* Light warm background */
+        h1, h2, h3, h4, h5, h6, .font-prompt { font-family: 'Prompt', sans-serif; }
+        .math-display { overflow-x: auto; overflow-y: hidden; }
+        
+        /* Custom scrollbar for pastel theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdf2f8; } /* Pink 50 */
+        ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 4px; } /* Pink 400 */
+        ::-webkit-scrollbar-thumb:hover { background: #ec4899; } /* Pink 500 */
+    </style>
+</head>
+<body class="text-gray-800 pb-20">
+
+    <!-- Navbar (Pastel Pink-Purple-Blue Gradient) -->
+    <nav class="bg-gradient-to-r from-pink-400 via-purple-400 to-sky-400 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-shapes text-2xl text-yellow-200"></i>
+                <div>
+                    <span class="font-bold text-lg font-prompt block leading-tight text-white drop-shadow-sm">Digital Lesson Plan</span>
+                    <span class="text-xs text-pink-50 font-medium">Active Learning & Technology Integration</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-5xl p-4 md:p-8 my-6 bg-white shadow-xl rounded-3xl border border-pink-100">
+        
+        <!-- Header: School & Teacher Info -->
+        <header class="border-b-4 border-pink-300 pb-6 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                <div class="flex-1">
+                    <h5 class="text-pink-500 font-bold uppercase tracking-wide text-sm mb-1">กลุ่มสาระการเรียนรู้คณิตศาสตร์</h5>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 font-prompt">โรงเรียนห้องสอนศึกษา ในพระอุปถัมภ์ฯ</h1>
+                    <div class="mt-4 space-y-1">
+                        <h2 class="text-2xl font-bold text-gray-700">เรื่อง เซตและการดำเนินการ</h2>
+                        <h3 class="text-lg text-gray-400 font-light">(Sets and Set Operations)</h3>
+                    </div>
+                </div>
+                
+                <!-- Teacher Box (Pastel Yellow) -->
+                <div class="bg-yellow-50 p-5 rounded-3xl border border-yellow-200 min-w-[280px] shadow-sm">
+                    <div class="flex items-center gap-3 mb-2 border-b border-yellow-200 pb-2">
+                        <div class="bg-yellow-300 text-yellow-800 w-10 h-10 rounded-full flex items-center justify-center shadow-sm"><i class="fa-solid fa-user-tie text-lg"></i></div>
+                        <div>
+                            <p class="text-xs text-yellow-700">ครูผู้สอน</p>
+                            <p class="font-bold text-gray-800">นางสาวพรไพลิน ตาไฝ</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p class="flex justify-between"><span><i class="fa-solid fa-book mr-2 text-purple-400"></i>วิชา:</span> <span class="font-bold">คณิตศาสตร์พื้นฐานวิทย์</span></p>
+                        <p class="flex justify-between"><span><i class="fa-solid fa-layer-group mr-2 text-sky-400"></i>ชั้น:</span> <span class="font-bold">มัธยมศึกษาปีที่ 4</span></p>
+                        <p class="flex justify-between"><span><i class="fa-solid fa-calendar-alt mr-2 text-orange-400"></i>ภาคเรียน:</span> <span class="font-bold">ภาคเรียนที่ 1</span></p>
+                        <p class="flex justify-between"><span><i class="fa-regular fa-clock mr-2 text-pink-400"></i>เวลา:</span> <span class="font-bold">2 คาบ (100 นาที)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Innovation Link & Download Button (Pastel Gradient Box) -->
+            <div class="mt-6 p-4 bg-gradient-to-r from-sky-200 via-green-100 to-yellow-100 rounded-2xl text-gray-800 shadow-sm border border-white flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white p-3 rounded-full shadow-sm text-sky-500">
+                        <i class="fa-solid fa-laptop-code text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg font-prompt text-sky-900">สื่อการสอนนวัตกรรม (Web Application)</h3>
+                        <p class="text-sky-800 text-sm font-medium">SetMaster - The Venn Diagram Challenge</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <!-- Download Button -->
+                    <a href="#" target="_blank" class="bg-white/80 border border-white text-sky-700 px-5 py-2 rounded-full font-bold hover:bg-white transition shadow-sm flex items-center justify-center text-sm whitespace-nowrap">
+                        <i class="fa-brands fa-google-drive mr-2 text-sky-500"></i> ดาวน์โหลดแผนฯ
+                    </a>
+                    
+                    <!-- Open App Button -->
+                    <a href="#" target="_blank" class="bg-sky-400 text-white border border-sky-300 px-6 py-2 rounded-full font-bold hover:bg-sky-500 transition shadow-sm transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
+                        <i class="fa-solid fa-play mr-2 text-yellow-100"></i> เปิดใช้งาน App
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Info & Standards -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Learning Outcomes (Pastel Blue) -->
+                <div class="bg-sky-50 p-5 rounded-2xl border-l-4 border-sky-300 shadow-sm">
+                    <h3 class="font-bold text-lg text-sky-800 mb-3 font-prompt">
+                        <i class="fa-solid fa-scroll mr-2 text-sky-500"></i> มาตรฐานและตัวชี้วัด
+                    </h3>
+                    <div class="text-sm text-gray-700 leading-relaxed text-justify space-y-2">
+                        <p><b>มาตรฐาน ค 1.1</b> เข้าใจความหลากหลายของการแสดงจำนวน ระบบจำนวน การดำเนินการของจำนวน ผลที่เกิดขึ้นจากการดำเนินการ สมบัติของการดำเนินการ และนำไปใช้</p>
+                        <p><b>ตัวชี้วัด ค 1.1 ม.4/1</b> เข้าใจและใช้ความรู้เกี่ยวกับเซตและตรรกศาสตร์เบื้องต้น ในการสื่อสารและสื่อความหมายทางคณิตศาสตร์</p>
+                    </div>
+                </div>
+
+                <!-- Concept & Equations (Pastel Purple) -->
+                <div class="bg-purple-50 p-5 rounded-2xl border border-purple-200 shadow-sm">
+                    <h3 class="font-bold text-lg text-purple-800 mb-3 font-prompt flex items-center">
+                        <i class="fa-solid fa-calculator text-purple-500 mr-2"></i> ทฤษฎีบทและสูตรหลัก
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-3 rounded-xl text-center border border-purple-100 shadow-sm">
+                            <span class="text-xs text-purple-500 block mb-1">จำนวนสมาชิกของเซต (2 เซต)</span>
+                            <div class="math-display text-purple-900 font-medium">$$n(A \cup B) = n(A) + n(B) - n(A \cap B)$$</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl text-center border border-purple-100 shadow-sm">
+                            <span class="text-xs text-purple-500 block mb-1">การดำเนินการของเซต (Set Operations)</span>
+                            <div class="math-display text-sm text-purple-900 font-medium">
+                                $$A \cup B = \{x \mid x \in A \text{ หรือ } x \in B\}$$
+                                $$A \cap B = \{x \mid x \in A \text{ และ } x \in B\}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objectives (Pastel Orange) -->
+                <div class="bg-orange-50 p-5 rounded-2xl border border-orange-200 shadow-sm">
+                    <h3 class="font-bold text-lg text-orange-800 mb-3 font-prompt">
+                        <i class="fa-solid fa-bullseye mr-2 text-orange-500"></i> จุดประสงค์ (KPA)
+                    </h3>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex gap-2">
+                            <span class="badge bg-orange-200 text-orange-800 px-2 rounded-lg font-bold shadow-sm">K</span>
+                            <span>นักเรียนสามารถหาผลลัพธ์ของการดำเนินการของเซต (ยูเนียน อินเตอร์เซกชัน ผลต่าง คอมพลีเมนต์) ได้ถูกต้อง</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="badge bg-yellow-200 text-yellow-800 px-2 rounded-lg font-bold shadow-sm">P</span>
+                            <span>นักเรียนสามารถเขียนแผนภาพเวนน์-ออยเลอร์ และใช้สูตรหาจำนวนสมาชิกเพื่อแก้ปัญหาได้อย่างแม่นยำ</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="badge bg-pink-200 text-pink-800 px-2 rounded-lg font-bold shadow-sm">A</span>
+                            <span>นักเรียนมีความรับผิดชอบต่องานที่ได้รับมอบหมาย ซื่อสัตย์ และมีส่วนร่วมในการทำงานกลุ่ม</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: 5E Process -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-3xl border border-pink-200 shadow-sm overflow-hidden">
+                    <!-- 5E Header (Pastel Pink) -->
+                    <div class="bg-pink-100 p-4 border-b border-pink-200 flex justify-between items-center">
+                        <h3 class="font-bold text-xl text-pink-900 font-prompt">
+                            <i class="fa-solid fa-chalkboard-teacher mr-2 text-pink-500"></i> กิจกรรมการเรียนรู้ (5E + STAD)
+                        </h3>
+                    </div>
+
+                    <div class="p-6 space-y-6">
+                        
+                        <!-- Step 1 (Pink) -->
+                        <div class="relative pl-8 border-l-2 border-pink-200">
+                            <div class="absolute -left-[17px] top-0 bg-pink-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">1</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นสร้างความสนใจ (Engagement) <span class="text-xs bg-pink-50 text-pink-700 border border-pink-200 px-2 py-1 rounded-full ml-2">10 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <p>• <b class="text-pink-600">Stimulus:</b> ครูให้นักเรียนจัดกลุ่มตามลักษณะ (เช่น คนใส่แว่น ให้อยู่ฝั่งซ้าย, คนผมสั้น ให้อยู่ฝั่งขวา) จากนั้นเปิด Interactive Venn Diagram เพื่อให้นักเรียนเห็นภาพรวมของพื้นที่ที่ทับซ้อนกัน</p>
+                                
+                                <div class="mt-3 mb-3">
+                                    <div class="bg-pink-50 border border-pink-200 rounded-2xl p-4 shadow-sm">
+                                        <p class="text-sm font-bold text-pink-800 mb-3"><i class="fa-solid fa-shapes mr-2"></i>สื่อประกอบ: Interactive Set Visualization</p>
+                                        <!-- Interactive SVG Display -->
+                                        <div class="relative w-full bg-white rounded-2xl border border-pink-100 shadow-inner p-4 flex flex-col items-center justify-center">
+                                            <svg viewBox="0 0 300 200" class="w-full max-w-sm drop-shadow-sm">
+                                                <!-- Universe -->
+                                                <rect x="5" y="5" width="290" height="190" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="2" rx="12"/>
+                                                <text x="15" y="25" font-size="14" fill="#be185d" font-family="Prompt, sans-serif" font-weight="bold">U (เอกภพสัมพัทธ์)</text>
+                                                
+                                                <!-- Circle A (Pastel Pink) -->
+                                                <circle cx="115" cy="105" r="65" fill="rgba(244, 114, 182, 0.4)" stroke="#f472b6" stroke-width="2" class="cursor-pointer hover:fill-[rgba(244,114,182,0.6)] transition-all duration-300"/>
+                                                <text x="65" y="110" font-size="24" fill="#9d174d" font-weight="bold" font-family="Prompt, sans-serif" pointer-events="none">A</text>
+                                                
+                                                <!-- Circle B (Pastel Blue) -->
+                                                <circle cx="185" cy="105" r="65" fill="rgba(56, 189, 248, 0.4)" stroke="#38bdf8" stroke-width="2" class="cursor-pointer hover:fill-[rgba(56,189,248,0.6)] transition-all duration-300"/>
+                                                <text x="220" y="110" font-size="24" fill="#0369a1" font-weight="bold" font-family="Prompt, sans-serif" pointer-events="none">B</text>
+                                                
+                                                <!-- Intersection Label -->
+                                                <text x="150" y="110" font-size="12" fill="#4c1d95" font-weight="bold" font-family="Prompt, sans-serif" pointer-events="none" text-anchor="middle">A ∩ B</text>
+                                            </svg>
+                                            <div class="mt-4 flex flex-wrap gap-4 text-xs justify-center w-full font-bold text-gray-600">
+                                                <div class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-pink-300 border border-pink-400 inline-block opacity-80"></span> เซต A</div>
+                                                <div class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-sky-300 border border-sky-400 inline-block opacity-80"></span> เซต B</div>
+                                                <div class="flex items-center gap-1"><span class="w-4 h-4 rounded-full bg-purple-300 border border-purple-400 inline-block opacity-80"></span> พื้นที่ซ้อนทับ</div>
+                                            </div>
+                                            <p class="text-xs text-pink-500 mt-3 text-center animate-pulse"><i class="fa-solid fa-hand-pointer mr-1"></i> ลองเอาเมาส์ชี้ที่วงกลมแต่ละวงเพื่อดูพื้นที่</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <p>• <b class="text-pink-600">Discussion:</b> ครูถามคำถาม "ทำไมเพื่อนบางคนถึงต้องไปยืนอยู่ตรงกลางระหว่างสองกลุ่ม?" เพื่อนำเข้าสู่ความหมายของการอินเตอร์เซกชัน (Intersection)</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 (Sky Blue) -->
+                        <div class="relative pl-8 border-l-2 border-sky-200">
+                            <div class="absolute -left-[17px] top-0 bg-sky-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">2</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นสำรวจและค้นหา (Exploration) <span class="text-xs bg-sky-50 text-sky-700 border border-sky-200 px-2 py-1 rounded-full ml-2">25 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-sky-100 text-sky-800 border border-sky-200 text-xs px-3 py-1 rounded-full font-bold mb-1 shadow-sm">[STAD Phase: Teams] กิจกรรม: The Venn Diagram Training Camp</span>
+                                <p>• <b class="text-sky-600">Group Formation:</b> แบ่งนักเรียนออกเป็นกลุ่ม กลุ่มละ 4 คน (คละความสามารถ เก่ง ปานกลาง อ่อน)</p>
+                                <p>• <b class="text-sky-600">Mission:</b> เข้าเมนู <b>"ไขปริศนาแผนภาพ (Group Puzzle)"</b> ระบบจะสุ่มสัญลักษณ์การดำเนินการ เช่น \( A \cup (B \cap C)' \) ให้แต่ละกลุ่มช่วยกันระบายสีลงในกระดาษคำตอบของกลุ่ม</p>
+                                <p>• <b class="text-sky-600">Gamification:</b> กลุ่มที่แสกนส่งคำตอบแรเงาแผนภาพได้ถูกต้องและรวดเร็วที่สุด จะได้รับคะแนนสะสม</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 (Pastel Green) -->
+                        <div class="relative pl-8 border-l-2 border-green-200">
+                            <div class="absolute -left-[17px] top-0 bg-green-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">3</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นอธิบายและลงข้อสรุป (Explanation) <span class="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-1 rounded-full ml-2">20 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-green-100 text-green-800 border border-green-200 text-xs px-3 py-1 rounded-full font-bold mb-1 shadow-sm">[STAD Phase: Presentation]</span>
+                                <p>• <b class="text-green-600">Debrief:</b> ครูดึงข้อที่นักเรียนทำผิดบ่อยสุดขึ้นจอภาพ เพื่ออภิปรายร่วมกัน</p>
+                                <p>• <b class="text-green-600">Correction:</b> แก้ไขความเข้าใจคลาดเคลื่อน (Misconception) เช่น ความแตกต่างระหว่าง \( A - B \) และ \( B - A \)</p>
+                                <p>• <b class="text-green-600">Tactics:</b> ตัวแทนจากกลุ่มที่ได้คะแนนสูงสุด ออกมาแชร์ "เทคนิคการมองพื้นที่" ให้เพื่อนฟัง</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 (Pastel Orange) -->
+                        <div class="relative pl-8 border-l-2 border-orange-200">
+                            <div class="absolute -left-[17px] top-0 bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">4</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นขยายความรู้ (Elaboration) <span class="text-xs bg-orange-50 text-orange-700 border border-orange-200 px-2 py-1 rounded-full ml-2">30 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-orange-100 text-orange-800 border border-orange-200 text-xs px-3 py-1 rounded-full font-bold mb-1 shadow-sm">[STAD Phase: Quiz & Accountability] กิจกรรม: The Set Operator Final</span>
+                                <p>• <b class="text-orange-600">Individual Test:</b> ระบบแสดงโจทย์ปัญหาสถานการณ์ (Word Problems) เช่น "นักเรียน 50 คน ชอบคณิต 30 คน ชอบวิทย์ 20 คน..." ให้นักเรียนแต่ละคนคำนวณหาจำนวนสมาชิกเดี่ยวๆ</p>
+                                <p>• <b class="text-orange-600">Peer Support Rule:</b> ให้เวลา 5 นาทีแรกในการ "ติวกันเองในกลุ่ม" อธิบายวิธีการใช้สูตร \( n(A \cup B) \) แต่เมื่อหมดเวลาติว ทุกคนต้องทำข้อสอบของตนเอง ห้ามลอกกันเด็ดขาด</p>
+                                <p>• <b class="text-orange-600">Challenge:</b> ครูจับเวลาทำแบบทดสอบ จากนั้นระบบจะตรวจคำตอบและคิดคะแนนพัฒนาการรายบุคคล เพื่อนำไปรวมเป็นคะแนนของกลุ่ม</p>
+                            </div>
+                        </div>
+
+                         <!-- Step 5 (Pastel Purple) -->
+                         <div class="relative pl-8 border-l-2 border-purple-200">
+                            <div class="absolute -left-[17px] top-0 bg-purple-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">5</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นประเมินผล (Evaluation) <span class="text-xs bg-purple-50 text-purple-700 border border-purple-200 px-2 py-1 rounded-full ml-2">15 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-purple-100 text-purple-800 border border-purple-200 text-xs px-3 py-1 rounded-full font-bold mb-1 shadow-sm">[STAD Phase: Recognition]</span>
+                                <p>• <b class="text-purple-600">Scoring:</b> คะแนนส่วนตัว: มาจากผลสอบ Solo Quiz นำไปเทียบกับคะแนนฐานเพื่อหา "คะแนนพัฒนาการ" คะแนนกลุ่ม: นำคะแนนพัฒนาการของสมาชิกทุกคนมาเฉลี่ย</p>
+                                <p>• <b class="text-purple-600">Awards:</b> ครูประกาศรางวัล "Venn Masters Team" (กลุ่มที่ได้คะแนนพัฒนาการสูงสุด) และกล่าวชื่นชมกลุ่มที่มีความสามัคคี</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Post Lesson Reflection (Pastel Green) -->
+        <section class="mt-8 bg-green-50 p-6 rounded-3xl shadow-sm border-t-4 border-green-300 break-inside-avoid">
+            <h3 class="font-bold text-xl text-green-900 mb-4 font-prompt flex items-center">
+                <i class="fa-solid fa-clipboard-check text-green-500 mr-2"></i> บันทึกหลังการจัดการเรียนรู้ (สำหรับครูผู้สอน)
+            </h3>
+            
+            <form id="reflectionForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Hidden Fields for Metadata -->
+                <input type="hidden" name="teacher" value="นางสาวพรไพลิน ตาไฝ">
+                <input type="hidden" name="subject" value="คณิตศาสตร์พื้นฐานวิทย์">
+                <input type="hidden" name="date" id="currentDate">
+
+                <div class="md:col-span-2 space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">1. ข้อมูลการเข้าเรียน</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white p-4 rounded-2xl border border-green-100 shadow-sm">
+                        <div class="flex flex-col gap-2">
+                            <span class="text-sm font-bold text-green-700"><i class="fa-solid fa-user-check mr-1 text-green-400"></i> นักเรียนที่เข้าเรียน</span>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                จำนวน <input type="number" id="attendCount" class="w-20 p-2 border border-green-200 rounded-xl focus:ring-2 focus:ring-green-300 focus:outline-none bg-green-50/50" placeholder="คน">
+                                <span class="mx-1 text-green-300">|</span>
+                                คิดเป็นร้อยละ <input type="number" step="0.01" id="attendPercent" class="w-24 p-2 border border-green-200 rounded-xl focus:ring-2 focus:ring-green-300 focus:outline-none bg-green-50/50" placeholder="%">
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <span class="text-sm font-bold text-orange-700"><i class="fa-solid fa-user-xmark mr-1 text-orange-400"></i> นักเรียนที่ไม่เข้าเรียน</span>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                จำนวน <input type="number" id="absentCount" class="w-20 p-2 border border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-300 focus:outline-none bg-orange-50/50" placeholder="คน">
+                                <span class="mx-1 text-orange-300">|</span>
+                                คิดเป็นร้อยละ <input type="number" step="0.01" id="absentPercent" class="w-24 p-2 border border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-300 focus:outline-none bg-orange-50/50" placeholder="%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">2. ผลสัมฤทธิ์ทางการเรียน (จำนวน ผ่าน/ไม่ผ่าน)</label>
+                    <textarea name="result" id="result" class="w-full p-3 border border-green-200 bg-white rounded-2xl focus:ring-2 focus:ring-green-300 focus:outline-none h-32 resize-none shadow-sm" placeholder="เช่น นักเรียนสามารถหาคำตอบแผนภาพเวนน์ได้ 38 คน ไม่ผ่าน 2 คน..."></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">3. ปัญหาและอุปสรรค</label>
+                    <textarea name="problems" id="problems" class="w-full p-3 border border-green-200 bg-white rounded-2xl focus:ring-2 focus:ring-green-300 focus:outline-none h-32 resize-none shadow-sm" placeholder="เช่น นักเรียนบางส่วนยังสับสนการหาผลต่างของเซต (A - B)..."></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">4. ข้อเสนอแนะ / แนวทางแก้ไข</label>
+                    <textarea name="suggestions" id="suggestions" class="w-full p-3 border border-green-200 bg-white rounded-2xl focus:ring-2 focus:ring-green-300 focus:outline-none h-32 resize-none shadow-sm" placeholder="เช่น เพิ่มโจทย์แบบฝึกหัดเรื่องผลต่าง และให้เพื่อนอธิบายให้เพื่อนฟังมากขึ้น..."></textarea>
+                </div>
+
+                <div class="space-y-2 flex flex-col justify-end">
+                    <div class="bg-white p-4 rounded-2xl border border-green-100 text-sm text-green-800 shadow-sm mb-2">
+                        <i class="fa-solid fa-info-circle mr-1 text-green-500"></i> ข้อมูลจะถูกส่งไปยัง Google Sheets (Sheet: บันทึกหลังสอน)
+                    </div>
+                    <button type="button" onclick="submitToSheet()" class="w-full bg-green-400 hover:bg-green-500 text-white font-bold py-3 rounded-2xl shadow-sm transition transform active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> บันทึกข้อมูลเข้าระบบ
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section 2: Supervision Log (Pastel Sky Blue) -->
+        <section class="mt-8 bg-sky-50 p-6 rounded-3xl shadow-sm border-t-4 border-sky-300 break-inside-avoid mb-6">
+            <h3 class="font-bold text-xl text-sky-900 mb-4 font-prompt flex items-center">
+                <i class="fa-solid fa-user-check text-sky-500 mr-2"></i> บันทึกและข้อเสนอแนะจากผู้นิเทศ (Supervision Log)
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Form Input Area -->
+                <div class="md:col-span-2 space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">ชื่อผู้นิเทศการสอน</label>
+                        <input type="text" id="supervisorName" class="w-full p-3 border border-sky-200 bg-white rounded-2xl focus:ring-2 focus:ring-sky-300 focus:outline-none shadow-sm" placeholder="ระบุชื่อ-นามสกุล">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">ตำแหน่ง</label>
+                            <input type="text" id="supervisorPosition" class="w-full p-3 border border-sky-200 bg-white rounded-2xl focus:ring-2 focus:ring-sky-300 focus:outline-none shadow-sm" placeholder="เช่น ผู้อำนวยการ / หัวหน้ากลุ่มสาระฯ">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">วิทยฐานะ</label>
+                            <input type="text" id="supervisorLevel" class="w-full p-3 border border-sky-200 bg-white rounded-2xl focus:ring-2 focus:ring-sky-300 focus:outline-none shadow-sm" placeholder="เช่น ชำนาญการพิเศษ / เชี่ยวชาญ">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">ข้อคิดเห็น / ข้อเสนอแนะเพิ่มเติม</label>
+                        <textarea id="supervisorComment" class="w-full p-3 border border-sky-200 bg-white rounded-2xl focus:ring-2 focus:ring-sky-300 focus:outline-none h-32 resize-none shadow-sm" placeholder="ระบุข้อเสนอแนะสำหรับการปรับปรุงแผนการสอน..."></textarea>
+                    </div>
+                    <button type="button" onclick="submitSupervision()" class="bg-sky-400 hover:bg-sky-500 text-white font-bold py-3 px-6 rounded-2xl shadow-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-save"></i> บันทึกผลการนิเทศ
+                    </button>
+                    <p class="text-xs text-sky-600 mt-2">*ข้อมูลจะถูกส่งไปยัง Google Sheets (Sheet: การนิเทศ)</p>
+                </div>
+
+                <!-- Summary & Fetch Area -->
+                <div class="md:col-span-1 bg-white p-4 rounded-2xl border border-sky-100 shadow-sm flex flex-col">
+                    <h4 class="font-bold text-sky-800 mb-2 border-b border-sky-100 pb-2">สรุปผลการนิเทศ</h4>
+                    <div id="supervisionSummaryArea" class="flex-1 overflow-y-auto max-h-60 text-sm text-gray-600 space-y-3 mb-4 pr-2">
+                        <p class="text-sky-400 italic text-center mt-4">ยังไม่มีข้อมูลแสดง</p>
+                    </div>
+                    <button type="button" onclick="fetchSupervisionSummary()" class="w-full bg-sky-50 text-sky-700 border border-sky-200 hover:bg-sky-100 font-bold py-2 rounded-xl transition text-sm shadow-sm">
+                        <i class="fa-solid fa-sync mr-1"></i> ดึงสรุปข้อมูลล่าสุด
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Script for Logic -->
+    <script>
+        // Set Current Date
+        document.getElementById('currentDate').value = new Date().toLocaleDateString('th-TH');
+
+        // ==========================================
+        // URL Web App จาก Google Apps Script
+        // ==========================================
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzC0JgShNGnLyaH7Fq6Phcho4yj16ErzlZk6Slwh8fM7ccImPRdClixD8iwqO4VobLb/exec';
+        
+        let REFLECTION_SCRIPT_URL = SCRIPT_URL;
+        let SUPERVISION_SCRIPT_URL = SCRIPT_URL;
+
+        // --- Logic บันทึกหลังสอน ---
+        function submitToSheet() {
+            const attendCount = document.getElementById('attendCount').value;
+            const attendPercent = document.getElementById('attendPercent').value;
+            const absentCount = document.getElementById('absentCount').value;
+            const absentPercent = document.getElementById('absentPercent').value;
+            const result = document.getElementById('result').value;
+            const problems = document.getElementById('problems').value;
+            const suggestions = document.getElementById('suggestions').value;
+
+            if(!REFLECTION_SCRIPT_URL || REFLECTION_SCRIPT_URL === '[PUT_YOUR_SCRIPT_URL_HERE]') {
+                Swal.fire('แจ้งเตือน', 'กรุณานำ URL Web App มาใส่ในโค้ดก่อนครับ', 'warning');
+                return;
+            }
+
+            Swal.fire({ title: 'กำลังบันทึก...', didOpen: () => Swal.showLoading(), backdrop: `rgba(74, 222, 128, 0.4)` });
+
+            const formData = new FormData();
+            formData.append('type', 'reflection');
+            formData.append('teacher', 'นางสาวพรไพลิน ตาไฝ');
+            formData.append('subject', 'คณิตศาสตร์พื้นฐานวิทย์');
+            formData.append('date', new Date().toLocaleDateString('th-TH'));
+            formData.append('attendCount', attendCount);
+            formData.append('attendPercent', attendPercent);
+            formData.append('absentCount', absentCount);
+            formData.append('absentPercent', absentPercent);
+            formData.append('result', result);
+            formData.append('problems', problems);
+            formData.append('suggestions', suggestions);
+
+            fetch(REFLECTION_SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+            .then(() => {
+                Swal.fire('สำเร็จ', 'บันทึกหลังสอนเรียบร้อยแล้ว', 'success');
+            })
+            .catch(err => Swal.fire('Error', 'เกิดข้อผิดพลาดในการส่งข้อมูล: ' + err.message, 'error'));
+        }
+
+        // --- Logic การนิเทศ ---
+        function submitSupervision() {
+            const name = document.getElementById('supervisorName').value;
+            const position = document.getElementById('supervisorPosition').value;
+            const level = document.getElementById('supervisorLevel').value;
+            const comment = document.getElementById('supervisorComment').value;
+
+            if(!SUPERVISION_SCRIPT_URL || SUPERVISION_SCRIPT_URL === '[PUT_YOUR_SCRIPT_URL_HERE]') {
+                Swal.fire('แจ้งเตือน', 'กรุณานำ URL Web App มาใส่ในโค้ดก่อนครับ', 'warning');
+                return;
+            }
+            if(!name || !comment) {
+                Swal.fire('แจ้งเตือน', 'กรุณากรอกชื่อผู้นิเทศและข้อเสนอแนะ', 'warning');
+                return;
+            }
+
+            Swal.fire({ title: 'กำลังส่งข้อมูล...', didOpen: () => Swal.showLoading(), backdrop: `rgba(56, 189, 248, 0.4)` });
+
+            const formData = new FormData();
+            formData.append('type', 'supervision');
+            formData.append('supervisor', name);
+            formData.append('position', position);
+            formData.append('level', level);
+            formData.append('comment', comment);
+            formData.append('date', new Date().toLocaleDateString('th-TH'));
+
+            fetch(SUPERVISION_SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+            .then(() => {
+                Swal.fire('สำเร็จ', 'บันทึกผลการนิเทศเรียบร้อยแล้ว', 'success');
+                document.getElementById('supervisorName').value = '';
+                document.getElementById('supervisorPosition').value = '';
+                document.getElementById('supervisorLevel').value = '';
+                document.getElementById('supervisorComment').value = '';
+                setTimeout(() => fetchSupervisionSummary(false), 1500);
+            })
+            .catch(err => Swal.fire('Error', 'เกิดข้อผิดพลาดในการส่งข้อมูล: ' + err.message, 'error'));
+        }
+
+        // --- Logic ดึงสรุปผล ---
+        function fetchSupervisionSummary(showLoading = true) {
+            if(!SUPERVISION_SCRIPT_URL || SUPERVISION_SCRIPT_URL === '[PUT_YOUR_SCRIPT_URL_HERE]') {
+                if(showLoading) {
+                    Swal.fire('แจ้งเตือน', 'กรุณานำ URL Web App มาใส่ในโค้ดก่อน', 'warning');
+                }
+                return;
+            }
+
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(SUPERVISION_SCRIPT_URL + "?action=read", {
+                        method: 'GET',
+                        redirect: 'follow'
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const data = await response.json();
+                    const area = document.getElementById('supervisionSummaryArea');
+
+                    if (data && Array.isArray(data) && data.length > 0) {
+                        area.innerHTML = '';
+                        data.forEach(item => {
+                            const dateObj = new Date(item.timestamp);
+                            const dateStr = !isNaN(dateObj) ? dateObj.toLocaleDateString('th-TH') : (item.date || '');
+                            let positionText = item.position ? item.position : '';
+                            let levelText = item.level ? item.level : '';
+                            let detailText = [positionText, levelText].filter(Boolean).join(' | ');
+
+                            area.innerHTML += `
+                                <div class="bg-sky-50/70 p-3 rounded-xl border border-sky-100 shadow-sm text-xs mb-3">
+                                    <p class="font-bold text-sky-800">${item.supervisor || 'ไม่ระบุชื่อ'}</p>
+                                    ${detailText ? `<p class="text-xs text-sky-600 mb-1">${detailText}</p>` : ''}
+                                    <p class="text-gray-700 bg-white p-2 rounded-lg mt-1 border border-sky-50">"${item.comment || ''}"</p>
+                                    <div class="mt-2 text-right">
+                                        <span class="text-sky-400 text-[10px]"><i class="fa-regular fa-clock mr-1"></i>${dateStr}</span>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        area.innerHTML = '<p class="text-sky-400 italic text-center mt-4">ยังไม่มีข้อมูลการนิเทศ</p>';
+                    }
+                } catch (err) {
+                    console.warn('Fetch warning (CORS or GAS setup issue):', err.message);
+                    
+                    const area = document.getElementById('supervisionSummaryArea');
+                    area.innerHTML = `
+                        <div class="text-red-500 text-xs text-center mt-4 bg-red-50 p-3 rounded-xl border border-red-200 shadow-sm">
+                            <i class="fa-solid fa-triangle-exclamation text-red-400 text-lg mb-1 block"></i>
+                            <p class="font-bold text-sm mb-1">ไม่สามารถดึงข้อมูลมาแสดงได้</p>
+                            <p class="text-gray-600 mb-2">โปรดตรวจสอบการตั้งค่า App Script:</p>
+                            <ul class="text-left ml-4 list-disc space-y-1 text-gray-700">
+                                <li>มีฟังก์ชัน <code class="bg-white px-1 border border-red-200 rounded">doGet(e)</code> หรือไม่</li>
+                                <li>ตั้งค่า <b>ผู้มีสิทธิ์เข้าถึง</b> เป็น <b>"ทุกคน (Anyone)"</b> หรือยัง</li>
+                            </ul>
+                        </div>
+                    `;
+                }
+            };
+
+            if(showLoading) {
+                Swal.fire({ title: 'กำลังดึงข้อมูล...', timer: 1000, didOpen: () => Swal.showLoading(), backdrop: `rgba(56, 189, 248, 0.4)` }).then(() => {
+                    fetchData();
+                });
+            } else {
+                fetchData();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                fetchSupervisionSummary(false);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
